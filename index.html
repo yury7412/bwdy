@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="Ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Главная страница</title>
+</head>
+<body>
+
+  <script>
+    window.onload = function () {
+      document.body.classList.add('loaded_hiding');
+      window.setTimeout(function () {
+        document.body.classList.add('loaded');
+        document.body.classList.remove('loaded_hiding');
+      }, 500);
+    }
+  </script>
+
+<div class="preloader">
+    <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path fill="#ff6a00"
+        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+      </path>
+    </svg>
+  </div>
+
+    
+    <header>
+        <div class="content">
+            <nav>
+                <div class="nav-bar">
+                    <span class="logo navLogo"><a href="#">BWDY</a></span>
+                    <i class='bx bx-menu sidebarOpen' ></i>
+        
+                    <div class="menu">
+                        <div class="logo-toggle">
+                            <span class="logo_burger"><a href="#" style="
+                              font-size: 25px;
+                              color: white;
+                              font-weight: 600;
+                          ">BWDY</a></span>
+                            <i class='bx bx-x siderbarClose'></i>
+                        </div>
+        
+                        <ul class="nav-links">
+                            <li><a href="#hero">Домой</a></li>
+                            <li><a href="#about_block">Обо мне</a></li>
+                            <li><a href="#about_block">Отзывы</a></li>
+                            <li><a href="#">Портфолио</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>  
+        </div>
+    </header>
+
+
+    <main>
+      <div class="hero" id="hero">
+        <div class="left_hero">
+          <h1 class="hero__title"> <span class="hero_span">Frontend</span> - разработчик</h1>
+          <h2 class="hero__subtitle">Юрий Гадалин</h2>
+          <p class="hero__description">
+            Привет, я занимаюсь версткой адаптивных сайтов по макету. 
+          </p>
+  
+  
+          <a href="" class="pressed-button">Узнать подробнее</a>
+        </div>
+        <div class="right_hero">
+          <img src="img/heroImg 1.png" alt="">
+        </div>
+      </div>
+
+      <div class="about_me" id="about_block">
+        <div  data-aos="fade-right" class="left_about">
+          <img src="img/Rectangle 18 (1).png" alt="">
+        </div>
+
+        <div class="right_about">
+          <h2 class="about__subtitle">Обо мне</h2>
+             <h1 class="about__title"> Дело, которым я живу</h1>
+              <p class="about__description">
+                            Меня зовут Юрий, мне 18 лет, учусь в Тольяттинском Социально - Педагогическом колледже, на специальность разработчик веб и мультимедийных приложений. Занимаюсь созданием дизайна, версткой сайтов.
+               </p>
+                
+                
+              <a href="#" class="pressed-button btn_abt">Связаться со мной</a>
+        </div>
+      </div>
+      
+    </main>
+
+
+   
+   
+
+    
+
+
+   
+    
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+</script>
+
+<script>
+  const anchors = document.querySelectorAll('a[href*="#"]')
+for (let anchor of anchors) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    
+    const blockID = anchor.getAttribute('href').substr(1)
+    
+    document.getElementById(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+</script>
+
+
+
+</body>
+</html>
